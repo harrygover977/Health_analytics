@@ -32,7 +32,7 @@ def main():
             st.form_submit_button()
         
     if st.session_state["hr_csv"] == None or st.session_state["sleep_csv"] == None:
-        st.info("📊 No data available yet — upload your Heart Rate and Sleep CSV files above to get started.")
+        st.info("📊 No data available yet — upload your Heart Rate and Sleep CSV files in the sidebar to get started.")
         st.title("Sample Data", text_alignment="center")
         st.divider()
         with open(hr_file_path, "rb") as f:
