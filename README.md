@@ -1,6 +1,6 @@
 # Health Analytics Dashboard
 
-A simplistic designed dahsboard made with streamlit, that takes real world heart rate and sleep data cleans, analyses
+A simple designed dahsboard made with streamlit, that takes real world heart rate and sleep data cleans, analyses
 and displays patterns found across the month. 
 
 Link - https://hr-sleep-analytics.streamlit.app/
