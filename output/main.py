@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from pathlib import Path
 
-hr_file_path = Path("../data/sample/heartRate.csv")
-sleep_file_path = Path("../data/sample/sleep.csv")
+BASE_DIR = Path(__file__).resolve().parent
+
+hr_file_path = BASE_DIR / "data" / "sample" / "heartRate.csv"
+sleep_file_path = BASE_DIR / "data" / "sample" / "sleep.csv"
 
 if "hr_csv" not in st.session_state:
     st.session_state["hr_csv"] = None
