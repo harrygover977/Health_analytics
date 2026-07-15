@@ -5,11 +5,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent
 
-hr_file_path = BASE_DIR / "data" / "sample" / "heartRate.csv"
-sleep_file_path = BASE_DIR / "data" / "sample" / "sleep.csv"
+hr_file_path = BASE_DIR/"data"/"sample"/"heartRate.csv"
+sleep_file_path = BASE_DIR/"data"/"sample"/"sleep.csv"
 
 if "hr_csv" not in st.session_state:
     st.session_state["hr_csv"] = None
@@ -34,6 +35,8 @@ def main():
         st.info("📊 No data available yet — upload your Heart Rate and Sleep CSV files above to get started.")
         st.title("Sample Data", text_alignment="center")
         st.divider()
+        st.write("BASE_DIR:", BASE_DIR)
+        st.write("Contents of data/sample:", os.listdir(BASE_DIR / "data" / "sample"))
         with open(hr_file_path, "rb") as f:
             st.download_button(
                 label="heart rate data ⬇️",
