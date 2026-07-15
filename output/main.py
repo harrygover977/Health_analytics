@@ -7,7 +7,7 @@ import matplotlib.ticker as ticker
 from pathlib import Path
 import os
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 hr_file_path = BASE_DIR/"data"/"sample"/"heartRate.csv"
 sleep_file_path = BASE_DIR/"data"/"sample"/"sleep.csv"
@@ -35,8 +35,6 @@ def main():
         st.info("📊 No data available yet — upload your Heart Rate and Sleep CSV files above to get started.")
         st.title("Sample Data", text_alignment="center")
         st.divider()
-        st.write("BASE_DIR:", BASE_DIR)
-        st.write("Contents of data/sample:", os.listdir(BASE_DIR / "data" / "sample"))
         with open(hr_file_path, "rb") as f:
             st.download_button(
                 label="heart rate data ⬇️",
@@ -57,8 +55,8 @@ def main():
         hr_df = pd.read_csv(st.session_state["hr_csv"], encoding="utf-8-sig", escapechar="\\")
         sleep_df = pd.read_csv(st.session_state["sleep_csv"], encoding="utf-8-sig", escapechar="\\")
         
-        hr_df.to_csv("../data/cleaned/hr_data_cleaned.csv", index=False)
-        sleep_df.to_csv("../data/cleaned/sleep_data_cleaned.csv", index=False)
+        hr_df.to_csv(BASE_DIR/"data"/"cleaned"/"hr_data_cleaned.csv", index=False)
+        sleep_df.to_csv(BASE_DIR/"data"/"cleaned"/"sleep_data_cleaned.csv", index=False)
         
         df = clean_data(hr_df, sleep_df)
         
